@@ -15,7 +15,12 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@myorg/ui-header": ["libs/ui-header/src/index.ts"],
+      "@myorg/movie-list/ui-movie-tile": [
+        "libs/movie-list/ui-movie-tile/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

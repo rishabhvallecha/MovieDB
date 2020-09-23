@@ -28,6 +28,12 @@
     "movie-db-e2e": {
       "tags": [],
       "implicitDependencies": ["movie-db"]
+    },
+    "ui-header": {
+      "tags": []
+    },
+    "movie-list-ui-movie-tile": {
+      "tags": []
     }
   }
 }
