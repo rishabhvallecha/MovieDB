@@ -6,6 +6,8 @@ import { ReactComponent as Logo } from './logo.svg';
 import star from './star.svg';
 
 import { PageTitle } from '@myorg/ui-header';
+import { MovieListDataAccessRecentMovies } from '@myorg/movie-list/data-access-recent-movies'
+import { LatestMovieHeader } from '@myorg/ui-header'
 
 export const App = () => {
   /*
@@ -15,11 +17,13 @@ export const App = () => {
    */
   return (
     <div className="app">
-      <header className="flex">
+      {/* <header className="flex">
         <Logo width="75" height="75" />
         <h1>Welcome to movie-db!</h1>
-      </header>
+      </header> */}
       <PageTitle />
+      <LatestMovieHeader />
+      <MovieListDataAccessRecentMovies />
       <main>
         <h2>Resources &amp; Tools</h2>
         <p>Thank you for using and showing some ♥ for Nx.</p>

@@ -34,6 +34,9 @@
     },
     "movie-list-ui-movie-tile": {
       "tags": []
+    },
+    "movie-list-data-access-recent-movies": {
+      "tags": []
     }
   }
 }

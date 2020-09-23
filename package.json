@@ -27,9 +27,11 @@
   },
   "private": true,
   "dependencies": {
+    "axios": "^0.20.0",
     "document-register-element": "1.13.1",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "styled-components": "^5.2.0"
   },
   "devDependencies": {
     "@nrwl/workspace": "10.2.1",

@@ -19,6 +19,9 @@
       "@myorg/ui-header": ["libs/ui-header/src/index.ts"],
       "@myorg/movie-list/ui-movie-tile": [
         "libs/movie-list/ui-movie-tile/src/index.ts"
+      ],
+      "@myorg/movie-list/data-access-recent-movies": [
+        "libs/movie-list/data-access-recent-movies/src/index.ts"
       ]
     }
   },
