@@ -1,7 +1,5 @@
 .app {
-  font-family: sans-serif;
-  min-width: 300px;
-  max-width: 600px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 50px auto;
 }
 
