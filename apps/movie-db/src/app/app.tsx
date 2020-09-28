@@ -2,12 +2,17 @@ import React from 'react';
 
 import './app.css';
 
-import { ReactComponent as Logo } from './logo.svg';
-import star from './star.svg';
+//import { ReactComponent as Logo } from './logo.svg';
+//import star from './star.svg';
 
 import { PageTitle } from '@myorg/ui-header';
 import { MovieListDataAccessRecentMovies } from '@myorg/movie-list/data-access-recent-movies'
 import { LatestMovieHeader } from '@myorg/ui-header'
+
+import { configureStore } from '@myorg/movie-list/data-access-recent-movies'
+import { Provider } from 'react-redux';
+
+const store = configureStore();
 
 export const App = () => {
   /*
@@ -16,14 +21,18 @@ export const App = () => {
    * Note: The corresponding styles are in the ./app.css file.
    */
   return (
-    <div className="app">
-      {/* <header className="flex">
-        <Logo width="75" height="75" />
-        <h1>Welcome to movie-db!</h1>
-      </header> */}
-      <PageTitle />
-      <LatestMovieHeader />
-      <MovieListDataAccessRecentMovies />
+    <Provider store = {store}>
+      <div className="app">
+        {/* <header className="flex">
+          <Logo width="75" height="75" />
+          <h1>Welcome to movie-db!</h1>
+        </header> */}
+        
+          <PageTitle />
+          <LatestMovieHeader />
+          <MovieListDataAccessRecentMovies />
+        
+      
       {/* <main>
         <h2>Resources &amp; Tools</h2>
         <p>Thank you for using and showing some ♥ for Nx.</p>
@@ -117,6 +126,7 @@ nx affected:e2e
         </details>
       </main> */}
     </div>
+    </Provider>
   );
 };
 
