@@ -67,7 +67,7 @@ export const MovieListDataAccessRecentMovies = (props: MovieListDataAccessRecent
 
       {errorMessage && <div>Something went wrong</div>}
       {loading ? <div>Loading. Please Wait.</div> : 
-        <MovieListUiMovieTile latestMoviesList = {latestMovies} />
+        <MovieListUiMovieTile moviesList = {latestMovies} />
       }   
       
     </div>

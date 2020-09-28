@@ -1,17 +1,24 @@
 import React from 'react';
 
 import './movie-list-ui-movie-tile.css';
-import { MovieListDataAccessRecentMovies } from '@myorg/movie-list/data-access-recent-movies'
 
 /* eslint-disable-next-line */
+
+interface MovieList {
+  id: number,
+  title: string,
+  poster_path?: string,
+  vote_average?: number
+}
+
 export interface MovieListUiMovieTileProps {
-  latestMoviesList: MovieListDataAccessRecentMovies[]
+  moviesList: MovieList[]
 }
 
 export const MovieListUiMovieTile = (props: MovieListUiMovieTileProps) => {
   return (
     <div className="movie-list-container">
-        {props.latestMoviesList.map(movie => (
+        {props.moviesList.map(movie => (
           <div className="movie-list-item" key={movie.id}>         
               <img src={`http://image.tmdb.org/t/p/w185${movie.poster_path}`} alt="Poster"/>
               <div className="movie-title">{movie.title}</div>
