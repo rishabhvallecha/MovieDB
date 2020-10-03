@@ -6,14 +6,20 @@ export const MOVIES = {
 }
 
 export interface Movie {
-    id: number,
-    title: string,
+    id?: number,
+    title?: string,
     poster_path?: string,
-    vote_average?: number
-}
-
-export interface MovieState {
-    movies: Movie[]
+    vote_average?: number,
+    popularity?: number,
+    vote_count?: number,
+    video?: boolean,
+    adult?: boolean,
+    backdrop_path?: string,
+    original_language?: string,
+    genre_ids?: number[],
+    original_title?: string,
+    overview?: string,
+    release_date?: string
 }
 
 export interface LoadMovieAction {
@@ -24,9 +30,9 @@ export interface StopLoadingAction {
     type: typeof MOVIES.LOAD_STOP
 }
 
-export interface SetMovieAction {
+export interface SetMoviesAction {
     type: typeof MOVIES.LOAD_SUCCESS,
-    payload: Movie
+    payload: Movie[]
 }
 
 export interface SetErrorAction {
@@ -34,4 +40,4 @@ export interface SetErrorAction {
     payload
 }
 
-export type MovieActionTypes = LoadMovieAction | StopLoadingAction | SetMovieAction | SetErrorAction
+export type MovieActionTypes = LoadMovieAction | StopLoadingAction | SetMoviesAction | SetErrorAction

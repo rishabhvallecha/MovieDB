@@ -6,7 +6,7 @@ import { combineReducers } from 'redux';
 
 const rootReducer = combineReducers({
     isLoading: loadingReducer,
-    movie: movieReducer,
+    movies: movieReducer,
     error: errorReducer
 })
 

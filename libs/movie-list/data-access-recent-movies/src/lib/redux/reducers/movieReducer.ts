@@ -1,14 +1,10 @@
-import { MOVIES, MovieState, SetMovieAction } from '../constants'
+import { MOVIES, SetMoviesAction, Movie } from '../constants'
 
-const initialState: MovieState = {
-    movies: []
-}
+const initialState: Movie[] = []
 
-const movieReducer = (state = initialState, action: SetMovieAction): MovieState => {
+const movieReducer = (state = initialState, action: SetMoviesAction): Movie[] => {
     if (action.type === MOVIES.LOAD_SUCCESS) {
-        return {
-            movies: [...state.movies, action.payload]
-        }
+        return action.payload      
     }
     return state;
 }
