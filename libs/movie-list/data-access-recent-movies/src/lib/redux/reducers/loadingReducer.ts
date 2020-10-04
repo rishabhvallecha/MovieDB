@@ -10,8 +10,6 @@ const loadingReducer = (state = initialState, action: LoadMovieAction): boolean 
             return false
         case MOVIES.LOAD_FAILURE:
             return false
-        case MOVIES.LOAD_STOP:
-            return false
         default:
             return state
     }

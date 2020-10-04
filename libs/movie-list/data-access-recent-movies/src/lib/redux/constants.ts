@@ -10,16 +10,6 @@ export interface Movie {
     title?: string,
     poster_path?: string,
     vote_average?: number,
-    popularity?: number,
-    vote_count?: number,
-    video?: boolean,
-    adult?: boolean,
-    backdrop_path?: string,
-    original_language?: string,
-    genre_ids?: number[],
-    original_title?: string,
-    overview?: string,
-    release_date?: string
 }
 
 export interface LoadMovieAction {

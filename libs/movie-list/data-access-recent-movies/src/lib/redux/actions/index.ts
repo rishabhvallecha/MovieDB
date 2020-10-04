@@ -10,9 +10,6 @@ const loadMovie = (): MovieActionTypes => ({
     type: MOVIES.LOAD_REQUEST
 })
 
-const stopLoading = (): MovieActionTypes => ({
-    type: MOVIES.LOAD_STOP
-})
 
 const setMovies = (movieList: Movie[]): MovieActionTypes => ({
     type: MOVIES.LOAD_SUCCESS,
@@ -34,6 +31,5 @@ const setError = (error): MovieActionTypes => ({
 export {
     loadMovie,
     setMovies,
-    setError,
-    stopLoading
+    setError
 }
