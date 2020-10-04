@@ -1,5 +1,5 @@
 import { MOVIES, Movie } from '../constants'
-import { setMovies, setError } from '../actions';
+import { setMovie, setError } from '../actions';
 
 import { takeEvery, call, put } from 'redux-saga/effects';
 import axios from 'axios'
@@ -19,7 +19,7 @@ const fetchLatestMovies = async (): Promise<Movie[]> => {
 function* handleLatestMoviesLoad() {
     try {
         const latestMovies = yield call(fetchLatestMovies)
-        yield put(setMovies(latestMovies));
+        yield put(setMovie(latestMovies));
     }
     catch (error) {
         yield put(setError(error));

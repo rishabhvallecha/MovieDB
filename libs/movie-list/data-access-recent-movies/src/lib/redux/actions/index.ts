@@ -1,5 +1,4 @@
 import { MOVIES, MovieActionTypes, Movie } from '../constants';
-
 // import { createAction } from '@reduxjs/toolkit'
 
 // export type Payload = {
@@ -10,10 +9,13 @@ const loadMovie = (): MovieActionTypes => ({
     type: MOVIES.LOAD_REQUEST
 })
 
+const stopLoading = (): MovieActionTypes => ({
+    type: MOVIES.LOAD_STOP
+})
 
-const setMovies = (movieList: Movie[]): MovieActionTypes => ({
+const setMovie = (movie: Movie): MovieActionTypes => ({
     type: MOVIES.LOAD_SUCCESS,
-    payload: movieList
+    payload: movie
 })
 
 const setError = (error): MovieActionTypes => ({
@@ -30,6 +32,7 @@ const setError = (error): MovieActionTypes => ({
 
 export {
     loadMovie,
-    setMovies,
-    setError
+    setMovie,
+    setError,
+    stopLoading
 }
