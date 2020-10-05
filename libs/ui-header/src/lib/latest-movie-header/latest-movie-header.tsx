@@ -8,7 +8,7 @@ export interface LatestMovieHeaderProps {}
 export const LatestMovieHeader = (props: LatestMovieHeaderProps) => {
   return (
     <div>
-      <h1>Latest Movies</h1>
+      <h2>Latest Movies</h2>
     </div>
   );
 };

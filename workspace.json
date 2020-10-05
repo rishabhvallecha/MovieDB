@@ -190,6 +190,116 @@
           }
         }
       }
+    },
+    "redux": {
+      "root": "libs/redux",
+      "sourceRoot": "libs/redux/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "libs/redux/tsconfig.lib.json",
+              "libs/redux/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/redux/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/redux/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "data-access-api": {
+      "root": "libs/data-access-api",
+      "sourceRoot": "libs/data-access-api/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "libs/data-access-api/tsconfig.lib.json",
+              "libs/data-access-api/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/data-access-api/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/data-access-api/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "movie-list-search-movie": {
+      "root": "libs/movie-list/search-movie",
+      "sourceRoot": "libs/movie-list/search-movie/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "libs/movie-list/search-movie/tsconfig.lib.json",
+              "libs/movie-list/search-movie/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/movie-list/search-movie/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/movie-list/search-movie/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "movie-list-ui-movie-search": {
+      "root": "libs/movie-list/ui-movie-search",
+      "sourceRoot": "libs/movie-list/ui-movie-search/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "libs/movie-list/ui-movie-search/tsconfig.lib.json",
+              "libs/movie-list/ui-movie-search/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/movie-list/ui-movie-search/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/movie-list/ui-movie-search/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

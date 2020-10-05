@@ -37,6 +37,18 @@
     },
     "movie-list-data-access-recent-movies": {
       "tags": []
+    },
+    "redux": {
+      "tags": []
+    },
+    "data-access-api": {
+      "tags": []
+    },
+    "movie-list-search-movie": {
+      "tags": []
+    },
+    "movie-list-ui-movie-search": {
+      "tags": []
     }
   }
 }

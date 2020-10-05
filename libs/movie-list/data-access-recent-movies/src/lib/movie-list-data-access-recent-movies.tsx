@@ -1,16 +1,15 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { loadMovie } from './redux/actions'
-import { Movie } from './redux/constants'
+import { loadMovie, Movie } from '@myorg/redux'
 import { MovieListUiMovieTile } from '@myorg/movie-list/ui-movie-tile';
 
 import './movie-list-data-access-recent-movies.css';
 
 export interface MovieListDataAccessRecentMoviesProps {
-  isLoading?: boolean,
-  movies?: Movie[],
-  error?: boolean,
-  loadMovie?,
+  isLoading: boolean,
+  movies: Movie[],
+  error: boolean,
+  loadMovie,
 }
 
 //type PropsFromRedux = ConnectedProps<typeof connector>
@@ -28,8 +27,8 @@ const MovieListDataAccessRecentMoviesIsolate = (props: MovieListDataAccessRecent
   return (
     <div>
 
-      {error && <div>Something went wrong</div>}
-      {isLoading ? <div>Loading. Please Wait.</div> : 
+      {error && <h3>Something went wrong</h3>}
+      {isLoading ? <h3>Loading. Please Wait.</h3> : 
           <MovieListUiMovieTile movies = {movies} />
       }   
       
@@ -56,5 +55,3 @@ const mapDispatchToProps = dispatch => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieListDataAccessRecentMoviesIsolate);
-
-export * from './redux/constants'

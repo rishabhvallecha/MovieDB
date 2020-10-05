@@ -22,6 +22,14 @@
       ],
       "@myorg/movie-list/data-access-recent-movies": [
         "libs/movie-list/data-access-recent-movies/src/index.ts"
+      ],
+      "@myorg/redux": ["libs/redux/src/index.ts"],
+      "@myorg/data-access-api": ["libs/data-access-api/src/index.ts"],
+      "@myorg/movie-list/search-movie": [
+        "libs/movie-list/search-movie/src/index.ts"
+      ],
+      "@myorg/movie-list/ui-movie-search": [
+        "libs/movie-list/ui-movie-search/src/index.ts"
       ]
     }
   },
