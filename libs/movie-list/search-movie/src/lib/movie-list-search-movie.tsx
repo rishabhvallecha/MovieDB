@@ -5,11 +5,10 @@ import { loadSearchMovies, Movie } from '@myorg/redux'
 import './movie-list-search-movie.css';
 import { MovieListUiMovieTile } from '@myorg/movie-list/ui-movie-tile';
 import { MovieListUiMovieSearch } from '@myorg/movie-list/ui-movie-search';
+import { SearchMoviesReducerState } from 'libs/redux/src/lib/reducers/searchMoviesReducer';
 
 export interface MovieListSearchMovieProps {
-  isLoadingSearch: boolean,
-  searchMoviesList: Movie[],
-  searchMoviesError: boolean,
+  searchMovies: SearchMoviesReducerState,
   loadSearchMovies,
 }
 
@@ -18,7 +17,7 @@ export const MovieListSearchMovieIsolate = (props: MovieListSearchMovieProps) =>
   const [inputText, setInputText] = useState('');
   const [query, setQuery] = useState('');
 
-  const { isLoadingSearch, searchMoviesList, searchMoviesError, loadSearchMovies } = props;
+  const { searchMovies, loadSearchMovies } = props;
 
   function handleChange(event: React.FormEvent<HTMLInputElement>) {
     const {value} = event.currentTarget;
@@ -31,7 +30,8 @@ export const MovieListSearchMovieIsolate = (props: MovieListSearchMovieProps) =>
   }
 
   useEffect( () => {
-    loadSearchMovies(query)
+
+    query && loadSearchMovies(query)
   }, [loadSearchMovies, query])
 
   return (
@@ -41,32 +41,26 @@ export const MovieListSearchMovieIsolate = (props: MovieListSearchMovieProps) =>
         handleChange={handleChange}
         handleClick={handleClick}
       />
-      {searchMoviesError && <h3>Something went wrong</h3> }
-      {isLoadingSearch ? <h3>Loading. Please Wait.</h3> : 
-        query === '' ? 
-        <div>
-          <h3>Popular Movies</h3>
-          <MovieListUiMovieTile movies = {searchMoviesList} />
-        </div> :
+      {searchMovies.errorState && <h3>Something went wrong</h3> }
+      {searchMovies.loadState ? <h3>Loading. Please Wait.</h3> : 
+
+        query && 
         <div>
           <h3>Results for: {query}</h3>
-          <MovieListUiMovieTile movies = {searchMoviesList} />
+          <MovieListUiMovieTile movies = {searchMovies.movieState} />
         </div>
+        
       }
     </div>
   );
 };
 
 interface RootState {
-  isLoadingSearch: boolean,
-  searchMoviesList: Movie[],
-  searchMoviesError: boolean
+  searchMovies: SearchMoviesReducerState
 }
 
-const mapStateToProps = ({ isLoadingSearch, searchMoviesList, searchMoviesError }): RootState => ({
-  isLoadingSearch,
-  searchMoviesList,
-  searchMoviesError
+const mapStateToProps = ({ searchMovies }): RootState => ({
+  searchMovies
 })
 
 const mapDispatchToProps = dispatch => ({

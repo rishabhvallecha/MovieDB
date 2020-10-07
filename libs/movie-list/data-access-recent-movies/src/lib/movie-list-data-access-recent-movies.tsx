@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { loadMovie, Movie } from '@myorg/redux'
 import { MovieListUiMovieTile } from '@myorg/movie-list/ui-movie-tile';
 
+import { LatestMovieReducerState } from 'libs/redux/src/lib/reducers/latestMovieReducer';
+
 import './movie-list-data-access-recent-movies.css';
 
 export interface MovieListDataAccessRecentMoviesProps {
@@ -10,15 +12,14 @@ export interface MovieListDataAccessRecentMoviesProps {
   movies: Movie[],
   error: boolean,
   loadMovie,
+  latestMovies: LatestMovieReducerState
 }
-
-//type PropsFromRedux = ConnectedProps<typeof connector>
 
 const MovieListDataAccessRecentMoviesIsolate = (props: MovieListDataAccessRecentMoviesProps) => {
 
 
-  const { isLoading, error, loadMovie, movies } = props;
-
+  const { latestMovies, loadMovie } = props;
+  console.log(latestMovies)
 
   useEffect( () => {
     loadMovie();
@@ -27,9 +28,9 @@ const MovieListDataAccessRecentMoviesIsolate = (props: MovieListDataAccessRecent
   return (
     <div>
 
-      {error && <h3>Something went wrong</h3>}
-      {isLoading ? <h3>Loading. Please Wait.</h3> : 
-          <MovieListUiMovieTile movies = {movies} />
+      {latestMovies.errorState && <h3>Something went wrong</h3>}
+      {latestMovies.loadState ? <h3>Loading. Please Wait.</h3> : 
+          <MovieListUiMovieTile movies = {latestMovies.movieState} />
       }   
       
     </div>
@@ -37,15 +38,11 @@ const MovieListDataAccessRecentMoviesIsolate = (props: MovieListDataAccessRecent
 };
 
 interface RootState {
-  isLoading: boolean,
-  movies: Movie[],
-  error: boolean,
+    latestMovies: LatestMovieReducerState
 }
 
-const mapStateToProps = ({ isLoading, movies, error }): RootState => ({
-    isLoading,
-    movies,
-    error
+const mapStateToProps = ({ latestMovies }): RootState => ({
+    latestMovies
 })
 
 const mapDispatchToProps = dispatch => {

@@ -1,31 +1,31 @@
-import { SEARCH_MOVIES, SearchMovieActionTypes, Movie } from '../constants'
+import { LATEST_MOVIES, Movie, MovieActionTypes } from '../constants'
 
-export interface SearchMoviesReducerState {
+export interface LatestMovieReducerState {
     loadState: boolean,
     movieState: Movie[],
-    errorState
+    errorState: boolean
 }
 
-const InitialState: SearchMoviesReducerState = {
+const InitialState: LatestMovieReducerState = {
     loadState: false,
     movieState: [],
     errorState: null
 }
 
-const searchMovieReducer = (state=InitialState, action: SearchMovieActionTypes) => {
+const latestMovieReducer = (state=InitialState, action: MovieActionTypes) => {
     switch(action.type) {
-        case SEARCH_MOVIES.LOAD_SEARCH_MOVIES_REQUEST:
+        case LATEST_MOVIES.LOAD_REQUEST:
             return ({
                 ...state,
                 loadState: true,
             })
-        case SEARCH_MOVIES.LOAD_SEARCH_MOVIES_SUCCESS: 
+        case LATEST_MOVIES.LOAD_SUCCESS: 
             return ({
                 ...state,
                 loadState: false,
                 movieState: action.payload
             })
-        case SEARCH_MOVIES.LOAD_SEARCH_MOVIES_FAILURE:
+        case LATEST_MOVIES.LOAD_FAILURE:
             return ({
                 ...state,
                 loadState: false,
@@ -36,4 +36,4 @@ const searchMovieReducer = (state=InitialState, action: SearchMovieActionTypes) 
     }
 }
 
-export default searchMovieReducer;
+export default latestMovieReducer;

@@ -18,7 +18,8 @@ export interface Movie {
 }
 
 export interface LoadMovieAction {
-    type: typeof LATEST_MOVIES.LOAD_REQUEST
+    type: typeof LATEST_MOVIES.LOAD_REQUEST,
+    payload
 }
 
 export interface SetMoviesAction {

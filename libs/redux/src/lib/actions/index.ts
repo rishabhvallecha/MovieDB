@@ -1,7 +1,8 @@
 import { LATEST_MOVIES, MovieActionTypes, SearchMovieActionTypes, Movie, SEARCH_MOVIES } from '../constants';
 
 const loadMovie = (): MovieActionTypes => ({
-    type: LATEST_MOVIES.LOAD_REQUEST
+    type: LATEST_MOVIES.LOAD_REQUEST,
+    payload: null
 })
 
 const setMovie = (movie: Movie): MovieActionTypes => ({
