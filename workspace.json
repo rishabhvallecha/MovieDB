@@ -130,6 +130,36 @@
             "jestConfig": "libs/ui-header/jest.config.js",
             "passWithNoTests": true
           }
+        },
+        "storybook": {
+          "builder": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/react",
+            "port": 4400,
+            "config": {
+              "configFolder": "libs/ui-header/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "options": {
+            "uiFramework": "@storybook/react",
+            "outputPath": "dist/storybook/ui-header",
+            "config": {
+              "configFolder": "libs/ui-header/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
         }
       }
     },
@@ -298,6 +328,30 @@
             "jestConfig": "libs/movie-list/ui-movie-search/jest.config.js",
             "passWithNoTests": true
           }
+        }
+      }
+    },
+    "ui-header-e2e": {
+      "root": "apps/ui-header-e2e",
+      "sourceRoot": "apps/ui-header-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/ui-header-e2e/cypress.json",
+            "tsConfig": "apps/ui-header-e2e/tsconfig.e2e.json",
+            "devServerTarget": "ui-header:storybook"
+          },
+          "configurations": {
+            "ci": {
+              "devServerTarget": "ui-header:storybook:ci"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {}
         }
       }
     }

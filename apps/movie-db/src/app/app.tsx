@@ -17,7 +17,7 @@ export const App = () => {
   return (
     <Provider store = {store}>
       <div className="app">        
-            <PageTitle />
+            <PageTitle name="Rishabh"/>
             <LatestMovieHeader />
             <MovieListDataAccessRecentMovies />
             <SearchMovieHeader />
