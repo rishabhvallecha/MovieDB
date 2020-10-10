@@ -8,9 +8,6 @@ import { LatestMovieReducerState } from 'libs/redux/src/lib/reducers/latestMovie
 import './movie-list-data-access-recent-movies.css';
 
 export interface MovieListDataAccessRecentMoviesProps {
-  isLoading: boolean,
-  movies: Movie[],
-  error: boolean,
   loadMovie,
   latestMovies: LatestMovieReducerState
 }
@@ -26,7 +23,7 @@ const MovieListDataAccessRecentMoviesIsolate = (props: MovieListDataAccessRecent
   },[])
 
   return (
-    <div>
+    <div className='latest-movies'>
 
       {latestMovies.errorState && <h3>Something went wrong</h3>}
       {latestMovies.loadState ? <h3>Loading. Please Wait.</h3> : 

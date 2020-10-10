@@ -33,7 +33,9 @@
     },
     "movie-db-e2e": {
       "tags": [],
-      "implicitDependencies": ["movie-db"]
+      "implicitDependencies": [
+        "movie-db"
+      ]
     },
     "ui-header": {
       "tags": []
@@ -58,7 +60,15 @@
     },
     "ui-header-e2e": {
       "tags": [],
-      "implicitDependencies": ["ui-header"]
+      "implicitDependencies": [
+        "ui-header"
+      ]
+    },
+    "movie-list-data-access-recent-movies-e2e": {
+      "tags": [],
+      "implicitDependencies": [
+        "movie-list-data-access-recent-movies"
+      ]
     }
   }
 }

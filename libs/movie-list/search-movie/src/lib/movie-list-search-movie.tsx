@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { connect } from 'react-redux';
-import { loadSearchMovies, Movie } from '@myorg/redux'
+import { loadSearchMovies } from '@myorg/redux'
 
 import './movie-list-search-movie.css';
 import { MovieListUiMovieTile } from '@myorg/movie-list/ui-movie-tile';
@@ -35,7 +35,7 @@ export const MovieListSearchMovieIsolate = (props: MovieListSearchMovieProps) =>
   }, [loadSearchMovies, query])
 
   return (
-    <div>
+    <div className='search-movie'>
       <MovieListUiMovieSearch 
         inputText={inputText}
         handleChange={handleChange}

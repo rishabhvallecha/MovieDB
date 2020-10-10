@@ -10,7 +10,7 @@
 
 // This function is called when a project is opened or re-opened (e.g. due to
 // the project's config changing)
-const path = require('path')
+
 const { preprocessTypescript } = require('@nrwl/cypress/plugins/preprocessor');
 
 module.exports = (on, config) => {
@@ -19,11 +19,4 @@ module.exports = (on, config) => {
 
   // Preprocess Typescript file using Nx helper
   on('file:preprocessor', preprocessTypescript(config));
-  on('before:browser:launch', (browser = {}, args) => {
-    if (browser.name === 'chrome') {
-      args.push('--load-extension=/home/work/.config/google-chrome/Default/Extensions/lmhkpmbekcpmknklioeibfkpmmfibljd/2.17.0_0,/home/work/.config/google-chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/4.2.1_0');
-      return args;
-    }
-    return null;
-  });
 };

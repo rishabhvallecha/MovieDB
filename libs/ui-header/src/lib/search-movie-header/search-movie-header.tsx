@@ -7,7 +7,7 @@ export interface SearchMovieHeaderProps {}
 
 export const SearchMovieHeader = (props: SearchMovieHeaderProps) => {
   return (
-    <div>
+    <div className="search-movie-header">
       <h2>Search for a Movie</h2>
     </div>
   );

@@ -19,7 +19,9 @@
               "apps/movie-db/src/favicon.ico",
               "apps/movie-db/src/assets"
             ],
-            "styles": ["apps/movie-db/src/styles.css"],
+            "styles": [
+              "apps/movie-db/src/styles.css"
+            ],
             "scripts": [],
             "webpackConfig": "@nrwl/react/plugins/webpack"
           },
@@ -67,7 +69,10 @@
               "apps/movie-db/tsconfig.app.json",
               "apps/movie-db/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/movie-db/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/movie-db/**/*"
+            ]
           }
         },
         "test": {
@@ -101,8 +106,13 @@
           "builder": "@nrwl/linter:lint",
           "options": {
             "linter": "eslint",
-            "tsConfig": ["apps/movie-db-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/movie-db-e2e/**/*"]
+            "tsConfig": [
+              "apps/movie-db-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/movie-db-e2e/**/*"
+            ]
           }
         }
       }
@@ -121,7 +131,10 @@
               "libs/ui-header/tsconfig.lib.json",
               "libs/ui-header/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/ui-header/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/ui-header/**/*"
+            ]
           }
         },
         "test": {
@@ -218,6 +231,36 @@
             "jestConfig": "libs/movie-list/data-access-recent-movies/jest.config.js",
             "passWithNoTests": true
           }
+        },
+        "storybook": {
+          "builder": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/react",
+            "port": 4400,
+            "config": {
+              "configFolder": "libs/movie-list/data-access-recent-movies/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "options": {
+            "uiFramework": "@storybook/react",
+            "outputPath": "dist/storybook/movie-list-data-access-recent-movies",
+            "config": {
+              "configFolder": "libs/movie-list/data-access-recent-movies/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
         }
       }
     },
@@ -235,7 +278,10 @@
               "libs/redux/tsconfig.lib.json",
               "libs/redux/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/redux/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/redux/**/*"
+            ]
           }
         },
         "test": {
@@ -261,7 +307,10 @@
               "libs/data-access-api/tsconfig.lib.json",
               "libs/data-access-api/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/data-access-api/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/data-access-api/**/*"
+            ]
           }
         },
         "test": {
@@ -346,6 +395,30 @@
           "configurations": {
             "ci": {
               "devServerTarget": "ui-header:storybook:ci"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {}
+        }
+      }
+    },
+    "movie-list-data-access-recent-movies-e2e": {
+      "root": "apps/movie-list-data-access-recent-movies-e2e",
+      "sourceRoot": "apps/movie-list-data-access-recent-movies-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/movie-list-data-access-recent-movies-e2e/cypress.json",
+            "tsConfig": "apps/movie-list-data-access-recent-movies-e2e/tsconfig.e2e.json",
+            "devServerTarget": "movie-list-data-access-recent-movies:storybook"
+          },
+          "configurations": {
+            "ci": {
+              "devServerTarget": "movie-list-data-access-recent-movies:storybook:ci"
             }
           }
         },

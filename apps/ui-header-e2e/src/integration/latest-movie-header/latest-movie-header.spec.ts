@@ -1,7 +1,7 @@
-describe('ui-header: LatestMovieHeader component', () => {
+describe('ui-header: Latest Movie Header component', () => {
   beforeEach(() => cy.visit('/iframe.html?id=latestmovieheader--primary'));
 
   it('should render the component', () => {
-    cy.get('h1').should('contain', 'Welcome to ui-header!');
+    cy.get('.latest-movie-header').should('contain', 'Latest Movies');
   });
 });
